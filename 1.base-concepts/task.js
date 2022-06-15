@@ -18,43 +18,29 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-  'use strict'
-    
-  if (typeof percent === 'string') {
-    percent = Number(percent);    
+  'use strict' 
+  if (isNaN(percent)) {
+    alert(`Параметр "Процентная ставка" содержит неправильное значение "${percent}"`);
+    return;
   }
-  else if (typeof percent !== 'number') {
-    percent = 'Параметр процент содержит неправильное значение <значение параметра>';
-    return percent;
+  if (isNaN(contribution)) {
+    alert(`Параметр "Процентная ставка" содержит неправильное значение "${contribution}"`);
+    return;
   }
-  if (typeof contribution === 'string') {
-    percent = Number(contribution);    
+  if (isNaN(amount)) {
+    alert(`Параметр "Процентная ставка" содержит неправильное значение "${amount}"`);
+    return;
   }
-  else if (typeof contribution !== 'number') {
-    contribution = 'Параметр процент содержит неправильное значение <значение параметра>';
-    return contribution;
-  }
-  if (typeof amount === 'string') {
-    amount = Number(amount);    
-  }
-  else if (typeof percent !== 'number') {
-    amount = 'Параметр процент содержит неправильное значение <значение параметра>';
-    return amount;
-  }
-  if (typeof date === 'string') {
-    date = Number(date);    
-  }
-  else if (typeof date !== 'number') {
-    date = 'Параметр процент содержит неправильное значение <значение параметра>';
-    return date;
-  };
-  
-  let s = amount - contribution;
-  let now = new Date ();
-  let n = (date.getFullYear() - now.getFullYear()) * 12;  
-  let p = (percent/100)/12;
+  if (isNaN(date)) {
+    alert(`Параметр "Процентная ставка" содержит неправильное значение "${date}"`);
+    return;
+  }    
+   
+  let s = Number(amount) - Number(contribution);
+  let now = Number(new Date ());  
+  let n = Math.trunc((date - now) / (1000 * 60 * 60 * 24 * 30));
+  let p = (Number(percent)/100)/12;
   let mounthAmount = s * (p + (p / (((1+p)**n) - 1)));
-  let total = mounthAmount * n;
-  let totalAmount = total.toFixed(2);
+  let totalAmount = (mounthAmount * n).toFixed(2);   
   return totalAmount;
 }
