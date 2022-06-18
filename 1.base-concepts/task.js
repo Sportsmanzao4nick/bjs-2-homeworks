@@ -49,6 +49,6 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let n = Math.trunc((date - dateNowNumber) / (1000 * 60 * 60 * 24 * 30));
   let p = percentNumber / 100 / 12;
   let mounthAmount = s * (p + (p / (((1+p)**n) - 1)));
-  let totalAmount = (mounthAmount * n).toFixed(2);   
+  let totalAmount = Number((mounthAmount * n).toFixed(2));   
   return totalAmount;
 }
