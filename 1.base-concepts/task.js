@@ -25,24 +25,24 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let dateNowNumber = Number(new Date ());
 
   if (isNaN(percentNumber)) {
-    alert(`Параметр "Процентная ставка" содержит неправильное значение "${percent}"`);
-    return;
+    percentNumber = `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`;
+    return percentNumber;
   }
   if (isNaN(contributionNumber)) {
-    alert(`Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`);
-    return;
+    contributionNumber = `Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`;
+    return contributionNumber;
   }
   if (isNaN(amountNumber)) {
-    alert(`Параметр "Общая стоимость" содержит неправильное значение "${amount}"`);
-    return;
+    amountNumber = `Параметр "Общая стоимость" содержит неправильное значение "${amount}"`;
+    return amountNumber;
   }
   if (isNaN(date)) {
-    alert(`Параметр "Дата" содержит неправильное значение "${date}"`);
-    return;
+    date = `Параметр "Дата" содержит неправильное значение "${date}"`;
+    return date;
   }
   if (isNaN(dateNowNumber)) {
-    alert(`Параметр "Дата" содержит неправильное значение "${date}"`);
-    return;
+    dateNowNumber = `Параметр "Дата" содержит неправильное значение "${date}"`;
+    return dateNowNumber;
   }  
    
   let s = amountNumber - contributionNumber;  
