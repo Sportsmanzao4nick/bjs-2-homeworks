@@ -38,10 +38,10 @@ class AlarmClock {
             if (alarm.time == this.getCurrentFormattedTime()) {
                 return alarm.callback();
             }
+        }
             if (this.timerId == null) {
                 this.timerId = setInterval(() => this.alarmCollection.forEach(alarm => checkClock(alarm)), 1000);
-            }
-        }
+            }        
     }
 
     stop() {
